@@ -1,14 +1,18 @@
 <h1>Articles</h1>
 
+Our blog has <%= Article.public_count %> articles and counting!
+
 <ul>
   <% @articles.each do |article| %>
+    <% unless article.archived? %>
     <li>
       <%= article.id %>
       <a href="/articles/<%= article.id %>">
-       <%= article.title %>
+        <%= article.title %>
       </a>   
       <%= article.body %>
     </li>
+    <% end %>
   <% end %>
 </ul>
 
